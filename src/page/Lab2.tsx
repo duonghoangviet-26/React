@@ -1,16 +1,24 @@
 import { Table } from "antd"
+import { Image } from 'antd';
+import { Tag } from 'antd';
 function Lab2() {
     const columns = [
         { title: "ID", dataIndex: "key" },
         { title: "Name", dataIndex: "name" },
         { title: "Age", dataIndex: "age" },
-        { title: "Major", dataIndex: "major" }
+        { title: "Major", dataIndex: "major" },
+        {
+            title: "Image", dataIndex: "image",
+            render: (value: string) => (
+                <Image src={value} alt="Hình ảnh " width={100} height={100} />
+            )
+        },
 
     ]
     const data = [
-        { key: 1, name: "Dương Hoàng Việt", age: 20, major: "FrontEnd Developer" },
-        { key: 2, name: "Linh", age: 21, major: "Business" },
-        { key: 3, name: "Hà", age: 19, major: "Design" },
+        { key: 1, name: "Dương Hoàng Việt", age: 20, major: "FrontEnd Developer", image: "https://www.bridgestone.com.vn/content/dam/consumer/pbo_seo-content/gia-lamborghini-13.webp" },
+        { key: 2, name: "Linh", age: 21, major: "Business", image: "https://www.bridgestone.com.vn/content/dam/consumer/pbo_seo-content/gia-lamborghini-13.webp" },
+        { key: 3, name: "Hà", age: 19, major: "Design", image: "https://www.bridgestone.com.vn/content/dam/consumer/pbo_seo-content/gia-lamborghini-13.webp" },
 
     ]
 
@@ -38,7 +46,7 @@ function Lab2() {
         {
             title: "Status", dataIndex: "status",
             render: (status: string) => (
-                <span style={{ color: status === "active" ? "blue" : "red" }}>{status}</span>
+                <Tag color={status === "active" ? "blue" : "red"} > {status}</Tag >
             )
         },
         {

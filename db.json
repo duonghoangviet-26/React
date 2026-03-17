@@ -1,4 +1,48 @@
 {
+  "stories": [
+    {
+      "title": "aaa",
+      "author": "aa",
+      "image": "aaa",
+      "description": "aaa",
+      "categoryId": 6,
+      "id": 1
+    }
+  ],
+  "categories": [
+    {
+      "title": "aaa",
+      "description": "aaa",
+      "id": 1
+    },
+    {
+      "title": "aaa",
+      "description": "aaa",
+      "id": 2
+    },
+    {
+      "title": "â",
+      "description": "aa",
+      "id": 3
+    },
+    {
+      "title": "truyện hay ",
+      "description": "aa",
+      "active": true,
+      "id": 4
+    },
+    {
+      "title": "truyện hay ",
+      "description": "aa",
+      "active": true,
+      "id": 5
+    },
+    {
+      "title": "truyện mới nhất",
+      "active": true,
+      "id": 6
+    }
+  ],
   "products": [],
   "users": []
 }

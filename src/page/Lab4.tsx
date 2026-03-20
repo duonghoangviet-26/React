@@ -15,7 +15,8 @@ interface story {
     title: string,
     author: string,
     image: string,
-    description: string
+    description: string,
+    categoryId: number
 }
 
 function StoryForm() {
@@ -49,6 +50,8 @@ function StoryForm() {
                 setCategories(res.data)
             } catch (error) {
                 toast.error("Thất bại")
+            } finally {
+                setLoading(false);
             }
         }
         getCategories();
@@ -85,7 +88,9 @@ function StoryForm() {
             <Form layout="vertical" onFinish={onFinishCategory} style={{ maxWidth: 400 }}>
                 <h2>Thêm danh mục</h2>
 
-                <Form.Item label="Title" name="title">
+                <Form.Item label="Title" name="title"
+                    rules={[{ required: true, message: "Nhập tên danh mục" }]}
+                >
                     <Input placeholder="Nhập tiêu đề" />
                 </Form.Item>
 
@@ -143,7 +148,7 @@ function StoryForm() {
                     <Select
                         placeholder="Chọn danh mục"
                         options={option}
-                        loading={loading}
+                    // loading={loading}
                     />
                 </Form.Item>
 

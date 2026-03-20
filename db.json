@@ -1,46 +1,36 @@
 {
   "stories": [
     {
-      "title": "aaa",
-      "author": "aa",
-      "image": "aaa",
-      "description": "aaa",
-      "categoryId": 6,
-      "id": 1
+      "id": 2,
+      "title": "One Piece",
+      "author": "Eiichiro Oda",
+      "image": "https://upload.wikimedia.org/wikipedia/en/6/6f/Monkey_D_Luffy.png"
+    },
+    {
+      "id": 3,
+      "title": "Naruto",
+      "author": "Masashi Kishimoto",
+      "image": "https://upload.wikimedia.org/wikipedia/en/9/94/NarutoCoverTankobon1.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Attack on Titan",
+      "author": "Hajime Isayama",
+      "image": "https://upload.wikimedia.org/wikipedia/en/7/7a/Shingeki_no_Kyojin_manga_volume_1.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Dragon Ball",
+      "author": "Akira Toriyama",
+      "image": "https://upload.wikimedia.org/wikipedia/en/c/c8/DB_Tank%C5%8Dbon.png"
     }
   ],
   "categories": [
     {
-      "title": "aaa",
-      "description": "aaa",
+      "title": "truyện hay ",
+      "description": "aa",
+      "active": true,
       "id": 1
-    },
-    {
-      "title": "aaa",
-      "description": "aaa",
-      "id": 2
-    },
-    {
-      "title": "â",
-      "description": "aa",
-      "id": 3
-    },
-    {
-      "title": "truyện hay ",
-      "description": "aa",
-      "active": true,
-      "id": 4
-    },
-    {
-      "title": "truyện hay ",
-      "description": "aa",
-      "active": true,
-      "id": 5
-    },
-    {
-      "title": "truyện mới nhất",
-      "active": true,
-      "id": 6
     }
   ],
   "products": [],

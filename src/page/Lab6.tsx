@@ -14,7 +14,7 @@ function EditStory() {
 
 
     const { data, isLoading } = useQuery({
-        queryKey: ["Story", id],
+        queryKey: ["story", id],
         queryFn: async () => {
             const res = await axios.get(`http://localhost:3000/stories/${id}`);
             return res.data;

@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Button, Image, Input, Popconfirm, Table } from "antd";
 import axios from "axios";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export function StoryList() {
     const [key, setKey] = useState("");
@@ -23,7 +24,7 @@ export function StoryList() {
     });
 
     const filteredData = data?.filter((item: any) =>
-        item.title.toLowerCase().includes(key.toLowerCase()),
+        item.title && item.title.toLowerCase().includes(key.toLowerCase())
     );
 
     const columns = [
@@ -48,14 +49,17 @@ export function StoryList() {
         {
             title: "Action",
             render: (_: any, record: any) => (
-                <Popconfirm
-                    title="Bạn có muốn xóa không"
-                    okText="Yes"
-                    cancelText="No"
-                    onConfirm={() => mutate(record.id)}
-                >
-                    <Button danger>Delete</Button>
-                </Popconfirm>
+                <>
+                    <Popconfirm
+                        title="Bạn có muốn xóa không"
+                        okText="Yes"
+                        cancelText="No"
+                        onConfirm={() => mutate(record.id)}
+                    >
+                        <Button danger>Delete</Button>
+                    </Popconfirm>
+                    <Link type="primary" to={`/edit/${record.id}`}>Sửa</Link>
+                </>
 
             ),
         },

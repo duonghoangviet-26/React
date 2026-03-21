@@ -1,10 +1,10 @@
 {
   "stories": [
     {
-      "id": 2,
-      "title": "One Piece",
+      "title": "One Piecec 3",
       "author": "Eiichiro Oda",
-      "image": "https://upload.wikimedia.org/wikipedia/en/6/6f/Monkey_D_Luffy.png"
+      "image": "https://upload.wikimedia.org/wikipedia/en/6/6f/Monkey_D_Luffy.png",
+      "id": 2
     },
     {
       "id": 3,

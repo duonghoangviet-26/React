@@ -2,6 +2,7 @@ import { Toaster } from "react-hot-toast";
 import { Link, Route, Routes } from "react-router-dom";
 import StoryForm from "./page/Lab4";
 import { StoryList } from "./page/Lab5";
+import EditStory from "./page/Lab6";
 // import { Layout } from "antd";
 // import { Form, Input, Button } from "antd";
 
@@ -24,7 +25,7 @@ function App() {
             <Link to="#" className="hover:text-gray-200">
               Trang chủ
             </Link>
-            <Link to="/list" className="hover:text-gray-200">
+            <Link to="/" className="hover:text-gray-200">
               Danh sách
             </Link>
             <Link to="/add" className="hover:text-gray-200">
@@ -79,6 +80,7 @@ function App() {
         <Routes>
           <Route path="/" element={<StoryList />} />
           <Route path="/add" element={<StoryForm />} />
+          <Route path="/edit/:id" element={<EditStory />} />
         </Routes>
       </div>
 

@@ -1,0 +1,85 @@
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { Button, Form, Select } from "antd";
+import axios from "axios";
+import { useEffect } from "react";
+import toast from "react-hot-toast";
+import { useNavigate, useParams } from "react-router-dom";
+
+
+function EditPage() {
+    const [form] = Form.useForm();
+    const { id } = useParams();
+    const nav = useNavigate();
+
+
+    const { data } = useQuery({
+        queryKey: ["courses", id],
+        queryFn: async () => {
+            const res = await axios.get(`http://localhost:3000/courses/${id}`);
+            return res.data;
+        }
+    })
+
+    useEffect((
+    ) => {
+        if (data) {
+            form.setFieldsValue(data);
+        }
+    }, [data, form])
+
+    const { mutate } = useMutation({
+        mutationFn: async (values) => {
+            const res = await axios.put(`http://localhost:3000/courses/${id}`, values);
+            return res.data;
+        },
+        onSuccess: () => {
+            nav("/list");
+            toast.success("Thêm thành công")
+        }
+    })
+
+    const OnFinish = (values: any) => {
+        mutate(values);
+    }
+
+    return (
+        <div className="p-6">
+            <h1 className="text-2xl font-semibold mb-6">Thêm mới</h1>
+            <Form layout="vertical" onFinish={OnFinish} form={form}>
+                <Form.Item label="Tiêu đề" name="title"
+                    rules={[
+                        { required: true, message: "Không được để chống" }
+                    ]}
+
+                >
+                    <input type="text" placeholder="Nhập vào nội dung" />
+                </Form.Item>
+
+                <Form.Item label="Thời Lượng" name="duration" rules={[
+                    { required: true, message: "Không được để chống" }
+                ]}>
+                    <input type="number" placeholder="Nhập vào nội dung" />
+                </Form.Item>
+
+                <Form.Item label="Đường dẫn ảnh" name="thumbnail" rules={[
+                    { required: true, message: "Không được để chống" }
+                ]}>
+                    <input type="text" placeholder="Nhập vào nội dung" />
+                </Form.Item>
+
+                <Form.Item label="Danh mục" name="category" rules={[
+                    { required: true, message: "Không được để chống" }
+                ]}>
+                    <Select placeholder="Chọn danh mục" options={[
+                        { label: "JS", value: "Js" },
+                        { label: "PHP", value: "PHP" }
+                    ]} />
+                </Form.Item>
+
+                <Button htmlType="submit" >Submit</Button>
+            </Form>
+        </div>
+    );
+}
+
+export default EditPage;

@@ -6,10 +6,8 @@ type ThemeContextType = {
     setTheme: (theme: string) => void;
 };
 
-// create context
 export const ThemeContext = createContext<ThemeContextType | null>(null);
 
-// provider component
 export const ThemeProvider = ({ children }: { children: any }) => {
     const [theme, setTheme] = useState("light");
 

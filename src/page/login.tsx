@@ -3,10 +3,12 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useAuthStore } from "../stores/useAuthStores";
+import { useNavigate } from "react-router-dom";
 
 
 const LoginPage = () => {
     const {setUser} = useAuthStore();
+    const nav = useNavigate()
 
     const {mutate} = useMutation({
         mutationFn: async (values) => {
@@ -15,6 +17,7 @@ const LoginPage = () => {
         },
         onSuccess: (data) => {
             toast.success("Dăng kí thành công");
+            nav("/")
             setUser({
                 user: data.user,
                 token : data.accessToken

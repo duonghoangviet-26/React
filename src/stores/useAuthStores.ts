@@ -1,16 +1,12 @@
 import {create} from "zustand"
 import {persist} from "zustand/middleware"
 
-type User = {
-  id?: number;
-  username: string;
-  email: string;
-};
 
 type AuthState = {
-  user: User | null;
+   user: any;
   token: string | null;
-  setUser: (data: { user: User; token: string }) => void;
+
+  setUser: (data: { user: any; token: string }) => void;
   logout: () => void;
 };
 

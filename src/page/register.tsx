@@ -11,6 +11,8 @@ const RegisterPage = () => {
     const {mutate} = useMutation({
         mutationFn: async (values) => {
             const res = await axios.post(`http://localhost:3000/register` , values);
+            console.log(res);
+            
             return res.data;
         },
         onSuccess: () => {
